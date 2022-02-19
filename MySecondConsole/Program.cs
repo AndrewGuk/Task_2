@@ -46,6 +46,7 @@ namespace Task_2
                 { "21", new myDeligate(AreaOfRightCircularCone) },
                 { "22", new myDeligate(VolumeSphere) },
                 { "23", new myDeligate(AreaSphere) },
+                { "24", new myDeligate(SurfaceAreaOfCircularOfRadiusAndGenaratrix) },
                 { "exit", new myDeligate(Exit) },
             };
             if (dic.ContainsKey(userEnter))
@@ -85,7 +86,9 @@ namespace Task_2
                     "\n20) Find the volume of a circular cone using radius and height;" +
                     "\n21) Find the lateral surface area of a right circular cone using the generatrix and the radius;" +
                     "\n22) Find the volume of a sphere using the radius;" +
-                    "\n23) Find the surface area of a sphere (area of a sphere) using the radius;");
+                    "\n23) Find the surface area of a sphere (area of a sphere) using the radius;" +
+                    "\n24) Find the surface area of a circular cone using generatrix and radius;");
+
                 Main(args);
             }
             double Validation()
@@ -398,6 +401,20 @@ namespace Task_2
                 WriteLine($"Sphere area is {Math.Abs(area)}");
                 ResetColor();
                 StartMenu();
+            }
+            void SurfaceAreaOfCircularOfRadiusAndGenaratrix()
+            {
+                WriteLine("Surface area of a circular cone through generatrix and radius:\n" +
+                          "Please, enter radius(R):");
+                double radius = Validation();
+                WriteLine("Please, enter a generatrix:");
+                double generatrix = Validation();
+                double area = Pi * radius * (radius + generatrix);
+                ForegroundColor = ConsoleColor.Green;
+                WriteLine($"Lateral surface area of a right circular cone is {Math.Abs(area)}");
+                ResetColor();
+                StartMenu();
+
             }
             void Exit()
             {
