@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text;
 
-namespace Test
+namespace Task_2
 {
     public class Program
     {
