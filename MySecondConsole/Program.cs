@@ -99,7 +99,7 @@ namespace Task_2
                 do
                 {
                     usEnter = ReadLine().ToLower().Replace('.', ',');
-                    if (usEnter.ToLower() == "exit")
+                    if (usEnter == "exit")
                     {
                         Main(args);
                     }
