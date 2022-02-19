@@ -54,7 +54,7 @@ namespace Test
             }
             else
             {
-
+                ForegroundColor = ConsoleColor.Red;
                 WriteLine("You have entered incorrect data, please read:");
                 ResetColor();
                 dic[Default]();
