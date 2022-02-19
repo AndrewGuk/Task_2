@@ -90,7 +90,7 @@ namespace Task_2
             }
             double Validation()
             {
-                bool xIsDouble;
+                bool usEnterIsDouble;
                 double receivedValue;
                 string usEnter;
                 do
@@ -104,13 +104,13 @@ namespace Task_2
                     {
                         usEnter = "null";
                     }
-                    xIsDouble = Double.TryParse(usEnter, out receivedValue);
-                    if (!xIsDouble)
+                    usEnterIsDouble = Double.TryParse(usEnter, out receivedValue);
+                    if (!usEnterIsDouble)
                     {
                         NotCorrect();
                     }
                 }
-                while (!xIsDouble);
+                while (!usEnterIsDouble);
                 receivedValue = double.Parse(usEnter);
                 return receivedValue;
             }
