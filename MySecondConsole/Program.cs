@@ -112,6 +112,7 @@ namespace Task_2
                 }
                 while (!usEnterIsDouble);
                 receivedValue = double.Parse(usEnter);
+                ForegroundColor = ConsoleColor.Green;
                 return receivedValue;
             }
             void NotCorrect()
@@ -126,7 +127,6 @@ namespace Task_2
                           "Please, enter radius(R):");
                 double radius = Validation();
                 double length = 2.0 * Pi * radius;
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circumference is {Math.Abs(length)}");
                 StartMenu();
             }
@@ -136,7 +136,6 @@ namespace Task_2
                           "Please, enter diameter(D):");
                 double diameter = Validation();
                 double length = Pi * diameter;
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circumference is {Math.Abs(length)}");
                 StartMenu();
             }
@@ -146,7 +145,6 @@ namespace Task_2
                           "Please, enter area of a circle(S):");
                 double areaOfCircle = Validation();
                 double length = Math.Sqrt((areaOfCircle * 4 * Pi));
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circumference is {Math.Abs(length)}");
                 StartMenu();
             }
@@ -156,7 +154,6 @@ namespace Task_2
                           "Please, enter diagonal(D):");
                 double diagonal = Validation();
                 double length = Pi * diagonal;
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circumference is {Math.Abs(length)}");
                 StartMenu();
             }
@@ -167,7 +164,6 @@ namespace Task_2
                 double diagonal = Validation();
                 double side = Pi * diagonal;
                 WriteLine($"Circumference is {Math.Abs(side)}");
-                ForegroundColor = ConsoleColor.Green;
                 StartMenu();
             }
             void CircumferenceSidesAndArea()
@@ -182,7 +178,6 @@ namespace Task_2
                 WriteLine("Please, enter side C:");
                 double sideC = Validation();
                 double length = Pi * ((sideA * sideB * sideC) / (2 * areaOfTriangle));
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circumference is {Math.Abs(length)}");
                 StartMenu();
             }
@@ -194,7 +189,6 @@ namespace Task_2
                 WriteLine("Please, enter area of an inscribed triangle:");
                 double halfPerimeter = Validation();
                 double length = (2 * Pi) * (areaOfTriangle / halfPerimeter);
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circumference is {Math.Abs(length)}");
                 StartMenu();
             }
@@ -206,7 +200,6 @@ namespace Task_2
                 WriteLine("Please, enter side of the polygon:");
                 double sideOfPolygon = Validation();
                 double length = Pi * (sideOfPolygon / (Math.Sin(180 / numberOfSides)));
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circumference is {Math.Abs(length)}");
                 StartMenu();
             }
@@ -218,7 +211,6 @@ namespace Task_2
                 WriteLine("Please, enter central angle in degrees:");
                 double centralAngle = Validation();
                 double length = (Pi * radius * centralAngle) / 180;
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Arc length is {Math.Abs(length)}");
                 StartMenu();
             }
@@ -228,7 +220,6 @@ namespace Task_2
                           "Please, enter radius(R):");
                 double radius = Validation();
                 double area = Pi * Math.Pow(radius, 2);
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Area of a circle is {Math.Abs(area)}");
                 StartMenu();
             }
@@ -238,7 +229,6 @@ namespace Task_2
                           "Please, enter diameter(D):");
                 double diameter = Validation();
                 double area = (Pi * Math.Pow(diameter, 2)) / 4;
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Area of a circle is {Math.Abs(area)}");
                 StartMenu();
             }
@@ -248,7 +238,6 @@ namespace Task_2
                           "Please, enter circumference(L):");
                 double circumference = Validation();
                 double diameter = circumference / Pi;
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circle diameter is {Math.Abs(diameter)}");
                 StartMenu();
             }
@@ -258,7 +247,6 @@ namespace Task_2
                           "Please, enter area(S):");
                 double area = Validation();
                 double radius = Math.Sqrt(area / Pi);
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circle radius is {Math.Abs(radius)}");
                 StartMenu();
             }
@@ -268,7 +256,6 @@ namespace Task_2
                           "Please, enter lenght(P):");
                 double lenght = Validation();
                 double radius = lenght / (2 * Pi);
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circle radius is {Math.Abs(radius)}");
                 StartMenu();
             }
@@ -280,7 +267,6 @@ namespace Task_2
                 WriteLine("Please, enter central angle in degrees:");
                 double centralAngle = Validation();
                 double radius = Math.Sqrt((360 * areaOfSector) / (Pi * centralAngle));
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circle radius is {Math.Abs(radius)}");
                 StartMenu();
             }
@@ -292,7 +278,6 @@ namespace Task_2
                 WriteLine("Please, enter sector angle in degrees:");
                 double sectorAngle = Validation();
                 double area = Pi * Math.Pow(radius, 2) * (sectorAngle / 360);
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Sector area of a circle is {Math.Abs(area)}");
                 StartMenu();
             }
@@ -304,7 +289,6 @@ namespace Task_2
                 WriteLine("Please, enter inner radius(r):");
                 double innerRadius = Validation();
                 double area = Pi * (Math.Pow(outerRadius, 2) - Math.Pow(innerRadius, 2));
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Ring area is {Math.Abs(area)}");
                 StartMenu();
             }
@@ -316,7 +300,6 @@ namespace Task_2
                 WriteLine("Please, enter height:");
                 double height = Validation();
                 double volume = Pi * height * Math.Pow(radius, 2);
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Volume of a circular cylinder is {Math.Abs(volume)}");
                 StartMenu();
             }
@@ -328,7 +311,6 @@ namespace Task_2
                 WriteLine("Please, enter height:");
                 double height = Validation();
                 double area = 2 * Pi * radius * height;
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Lateral surface area of a right circular cylinder is {Math.Abs(area)}");
                 StartMenu();
             }
@@ -340,7 +322,6 @@ namespace Task_2
                 WriteLine("Please, enter height:");
                 double height = Validation();
                 double volume = (Pi * Math.Pow(radius, 2) * height) / 3;
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Volume of a circular cone is {Math.Abs(volume)}");
                 StartMenu();
             }
@@ -352,7 +333,6 @@ namespace Task_2
                 WriteLine("Please, enter a generatrix:");
                 double generatrix = Validation();
                 double area = Pi * radius * generatrix;
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Lateral surface area of a right circular cone is {Math.Abs(area)}");
                 StartMenu();
             }
@@ -362,7 +342,6 @@ namespace Task_2
                           "Please, enter radius(R):");
                 double radius = Validation();
                 double volume = (4 / 3) * Pi * Math.Pow(radius, 3);
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Sphere volume is {Math.Abs(volume)}");
                 StartMenu();
             }
@@ -372,7 +351,6 @@ namespace Task_2
                           "Please, enter radius(R):");
                 double radius = Validation();
                 double area = 4 * Pi * Math.Pow(radius, 2);
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Sphere area is {Math.Abs(area)}");
                 StartMenu();
             }
@@ -384,7 +362,6 @@ namespace Task_2
                 WriteLine("Please, enter a generatrix:");
                 double generatrix = Validation();
                 double area = Pi * radius * (radius + generatrix);
-                ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Lateral surface area of a right circular cone is {Math.Abs(area)}");
                 StartMenu();
             }
