@@ -7,19 +7,21 @@ namespace Task_2
     public class Program
     {
         public delegate void myDeligate();
-        const string Default = "help";
         const double Pi = 3.141592653;
         const decimal E = 1.414213562373095048M;
         static void Main(string[] args)
         {
             OutputEncoding = Encoding.UTF8;
-            WriteLine("Hello! This program can help you execute a mathematical quest" +
-                      "\nThis program contains the basic formulas where \u03c0 is used." +
-                      $"\n\u03c0 = {Pi} \te = {E}");
+            ForegroundColor = ConsoleColor.DarkBlue;
+            WriteLine("\tHello! This program can help you execute a mathematical quest" +
+                      "\n\tThis program contains the basic formulas where \u03c0 is used." +
+                      $"\n\t\t\u03c0 = {Pi} \te = {E}");
+            ForegroundColor = ConsoleColor.DarkYellow;
             WriteLine("Enter \"help\" to see list of formulas" +
-                      "\nIf you have chosen the wrong formula or want to end your work, " +
-                      "enter <exit>");
+                      "\nIf you want to end your work enter <exit>.");
+            ResetColor();
             string userEnter = ReadLine().ToLower();
+            ForegroundColor = ConsoleColor.DarkMagenta;
             Dictionary<string, myDeligate> dic = new Dictionary<string, myDeligate>()
             {
                 { "help", new myDeligate(Help) },
@@ -58,12 +60,14 @@ namespace Task_2
                 ForegroundColor = ConsoleColor.Red;
                 WriteLine("You have entered incorrect data, please read:");
                 ResetColor();
-                dic[Default]();
-                Main(args);
+                Help();
             }
             void Help()
             {
-                WriteLine("You can use the following formulas:" +
+                ForegroundColor = ConsoleColor.Cyan;
+                WriteLine("\t\tYou can use the following formulas:");
+                ForegroundColor = ConsoleColor.DarkGray;
+                WriteLine(
                     "\n1) Find the circumference of a circle using the radius;" +
                     "\n2) Find the circumference of a circle using the diameter;" +
                     "\n3) Find the circumference of a circle using the area of a circle;" +
@@ -88,7 +92,7 @@ namespace Task_2
                     "\n22) Find the volume of a sphere using the radius;" +
                     "\n23) Find the surface area of a sphere (area of a sphere) using the radius;" +
                     "\n24) Find the surface area of a circular cone using generatrix and radius;");
-
+                ResetColor();
                 Main(args);
             }
             double Validation()
@@ -98,15 +102,8 @@ namespace Task_2
                 string usEnter;
                 do
                 {
+                    ResetColor();
                     usEnter = ReadLine().ToLower().Replace('.', ',');
-                    if (usEnter == "exit")
-                    {
-                        Main(args);
-                    }
-                    if (usEnter == string.Empty)
-                    {
-                        usEnter = "null";
-                    }
                     usEnterIsDouble = Double.TryParse(usEnter, out receivedValue);
                     if (!usEnterIsDouble)
                     {
@@ -131,7 +128,6 @@ namespace Task_2
                 double length = 2.0 * Pi * radius;
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circumference is {Math.Abs(length)}");
-                ResetColor();
                 StartMenu();
             }
             void CircumferencePiDiameter()
@@ -142,7 +138,6 @@ namespace Task_2
                 double length = Pi * diameter;
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circumference is {Math.Abs(length)}");
-                ResetColor();
                 StartMenu();
             }
             void CircumferenceAreaOfCircle()
@@ -153,7 +148,6 @@ namespace Task_2
                 double length = Math.Sqrt((areaOfCircle * 4 * Pi));
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circumference is {Math.Abs(length)}");
-                ResetColor();
                 StartMenu();
             }
             void CircumferencePiDiagonal()
@@ -164,7 +158,6 @@ namespace Task_2
                 double length = Pi * diagonal;
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circumference is {Math.Abs(length)}");
-                ResetColor();
                 StartMenu();
             }
             void CircumferencePiSide()
@@ -175,7 +168,6 @@ namespace Task_2
                 double side = Pi * diagonal;
                 WriteLine($"Circumference is {Math.Abs(side)}");
                 ForegroundColor = ConsoleColor.Green;
-                ResetColor();
                 StartMenu();
             }
             void CircumferenceSidesAndArea()
@@ -192,7 +184,6 @@ namespace Task_2
                 double length = Pi * ((sideA * sideB * sideC) / (2 * areaOfTriangle));
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circumference is {Math.Abs(length)}");
-                ResetColor();
                 StartMenu();
             }
             void CircumferenceAreaAndHalfPerimeter()
@@ -205,7 +196,6 @@ namespace Task_2
                 double length = (2 * Pi) * (areaOfTriangle / halfPerimeter);
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circumference is {Math.Abs(length)}");
-                ResetColor();
                 StartMenu();
             }
             void CircumferenceRegularPolygon()
@@ -218,7 +208,6 @@ namespace Task_2
                 double length = Pi * (sideOfPolygon / (Math.Sin(180 / numberOfSides)));
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circumference is {Math.Abs(length)}");
-                ResetColor();
                 StartMenu();
             }
             void ArcLength()
@@ -231,7 +220,6 @@ namespace Task_2
                 double length = (Pi * radius * centralAngle) / 180;
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Arc length is {Math.Abs(length)}");
-                ResetColor();
                 StartMenu();
             }
             void CircleAreaOfRadius()
@@ -242,7 +230,6 @@ namespace Task_2
                 double area = Pi * Math.Pow(radius, 2);
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Area of a circle is {Math.Abs(area)}");
-                ResetColor();
                 StartMenu();
             }
             void CircleAreaOfDiameter()
@@ -253,7 +240,6 @@ namespace Task_2
                 double area = (Pi * Math.Pow(diameter, 2)) / 4;
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Area of a circle is {Math.Abs(area)}");
-                ResetColor();
                 StartMenu();
             }
             void CircleDiameterOfLenght()
@@ -264,7 +250,6 @@ namespace Task_2
                 double diameter = circumference / Pi;
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circle diameter is {Math.Abs(diameter)}");
-                ResetColor();
                 StartMenu();
             }
             void CircleRadiusOfArea()
@@ -275,7 +260,6 @@ namespace Task_2
                 double radius = Math.Sqrt(area / Pi);
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circle radius is {Math.Abs(radius)}");
-                ResetColor();
                 StartMenu();
             }
             void CircleRadiusOfLength()
@@ -286,7 +270,6 @@ namespace Task_2
                 double radius = lenght / (2 * Pi);
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circle radius is {Math.Abs(radius)}");
-                ResetColor();
                 StartMenu();
             }
             void CircleRadiusOfAreaAndCentralAngle()
@@ -299,7 +282,6 @@ namespace Task_2
                 double radius = Math.Sqrt((360 * areaOfSector) / (Pi * centralAngle));
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Circle radius is {Math.Abs(radius)}");
-                ResetColor();
                 StartMenu();
             }
             void SectorAreaOfRadiusAndAngle()
@@ -312,7 +294,6 @@ namespace Task_2
                 double area = Pi * Math.Pow(radius, 2) * (sectorAngle / 360);
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Sector area of a circle is {Math.Abs(area)}");
-                ResetColor();
                 StartMenu();
             }
             void RingAreaOfRadius()
@@ -325,7 +306,6 @@ namespace Task_2
                 double area = Pi * (Math.Pow(outerRadius, 2) - Math.Pow(innerRadius, 2));
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Ring area is {Math.Abs(area)}");
-                ResetColor();
                 StartMenu();
             }
             void VolumeCylinderOfRadiusAndHeight()
@@ -338,7 +318,6 @@ namespace Task_2
                 double volume = Pi * height * Math.Pow(radius, 2);
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Volume of a circular cylinder is {Math.Abs(volume)}");
-                ResetColor();
                 StartMenu();
             }
             void AreaOfRightCylinder()
@@ -351,7 +330,6 @@ namespace Task_2
                 double area = 2 * Pi * radius * height;
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Lateral surface area of a right circular cylinder is {Math.Abs(area)}");
-                ResetColor();
                 StartMenu();
             }
             void VolumeOfCircularCone()
@@ -364,7 +342,6 @@ namespace Task_2
                 double volume = (Pi * Math.Pow(radius, 2) * height) / 3;
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Volume of a circular cone is {Math.Abs(volume)}");
-                ResetColor();
                 StartMenu();
             }
             void AreaOfRightCircularCone()
@@ -377,7 +354,6 @@ namespace Task_2
                 double area = Pi * radius * generatrix;
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Lateral surface area of a right circular cone is {Math.Abs(area)}");
-                ResetColor();
                 StartMenu();
             }
             void VolumeSphere()
@@ -388,7 +364,6 @@ namespace Task_2
                 double volume = (4 / 3) * Pi * Math.Pow(radius, 3);
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Sphere volume is {Math.Abs(volume)}");
-                ResetColor();
                 StartMenu();
             }
             void AreaSphere()
@@ -399,7 +374,6 @@ namespace Task_2
                 double area = 4 * Pi * Math.Pow(radius, 2);
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Sphere area is {Math.Abs(area)}");
-                ResetColor();
                 StartMenu();
             }
             void SurfaceAreaOfCircularOfRadiusAndGenaratrix()
@@ -412,19 +386,20 @@ namespace Task_2
                 double area = Pi * radius * (radius + generatrix);
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine($"Lateral surface area of a right circular cone is {Math.Abs(area)}");
-                ResetColor();
                 StartMenu();
-
             }
             void Exit()
             {
                 ForegroundColor = ConsoleColor.Green;
                 WriteLine("Goodbye!");
                 ResetColor();
+                return;
             }
             void StartMenu()
             {
-                WriteLine("If you want to continue, please enter \"yes\"");
+                ForegroundColor = ConsoleColor.Yellow;
+                WriteLine("If you want to continue, please enter \"yes\" or \"y\":");
+                ResetColor();
                 string answer = ReadLine().ToLower();
                 if (answer == "yes" || answer == "y")
                     Main(args);
